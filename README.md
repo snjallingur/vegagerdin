@@ -15,4 +15,3 @@ There is also a binary_sensor ("binary_sensors.yaml") from the MQTT sensor(s) cr
 
 
 ![GitHub Logo](/lovelace_hellisheidi.jpg)
-Format: ![Alt Text](url)
