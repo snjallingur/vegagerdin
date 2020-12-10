@@ -12,3 +12,7 @@ http://www4.vegagerdin.is/xml/myndavelar.xml
 The sensors are created from a python script ("vegagerdin.py"). The script pulls the information from the xml file and "watches" to certain road sections ('IdButur'). The trickiest part is to find the right road setion ID. The Python script gathers the information from a road setion and publishes the results to an MQTT broker. The script is defined as a shell command ("shell_commands.yaml") and the shell script is run from an automation every 10 minutes (or more frequently if you like).
 
 There is also a binary_sensor ("binary_sensors.yaml") from the MQTT sensor(s) created ("sensors.yaml").
+
+
+![GitHub Logo](/images/logo.png)
+Format: ![Alt Text](url)
