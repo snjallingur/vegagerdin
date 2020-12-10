@@ -1,4 +1,4 @@
-# vegagerdin
+# Vegagerðin
 Home Assistant MQTT sensor(s) for road condition in Iceland
 based on:
 http://gagnaveita.vegagerdin.is/api/faerd2017_1
@@ -13,5 +13,5 @@ The sensors are created from a python script ("vegagerdin.py"). The script pulls
 
 There is also a binary_sensor ("binary_sensors.yaml") from the MQTT sensor(s) created ("sensors.yaml").
 
-
+# Lovelace card
 ![GitHub Logo](/lovelace_hellisheidi.jpg)
