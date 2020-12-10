@@ -1,0 +1,13 @@
+# Binary sensors road conditions
+- platform: template
+  sensors:
+    road_hellisheidi:
+      device_class: opening
+      value_template: >-
+        {{ states.sensor.road_condition_hellisheidi.state == "true" }}
+      icon_template: >-
+        {% if states.sensor.road_condition_hellisheidi.state == "true" %}
+          mdi:car
+        {% else %}
+          mdi:car-off
+        {% endif %}
