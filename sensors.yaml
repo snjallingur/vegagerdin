@@ -1,0 +1,8 @@
+# Hellisheiði
+- platform: mqtt
+  name: "road_condition_hellisheidi"
+  state_topic: "homeassistant/vegagerdin/hellisheidi"
+  icon: mdi:highway
+  value_template: "{{ value_json['passable'] }}"
+  json_attributes_topic: "homeassistant/vegagerdin/hellisheidi"
+  json_attributes_template: "{{ value_json | tojson }}"
