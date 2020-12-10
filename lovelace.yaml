@@ -1,0 +1,6 @@
+type: picture-glance
+title: Hellisheiði
+image: 'https://www.vegagerdin.is/vgdata/vefmyndavelar/hellisheidi_1.jpg'
+entities:
+  - entity: binary_sensor.road_hellisheidi
+  - entity: sensor.road_condition_hellisheidi
