@@ -14,5 +14,5 @@ The sensors are created from a python script ("vegagerdin.py"). The script pulls
 There is also a binary_sensor ("binary_sensors.yaml") from the MQTT sensor(s) created ("sensors.yaml").
 
 
-![GitHub Logo](/images/logo.png)
+![GitHub Logo](/lovelace_hellisheidi.jpg)
 Format: ![Alt Text](url)
