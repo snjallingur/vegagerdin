@@ -28,6 +28,8 @@ for IdButur in response:
         kjalarnes['condition_detail'] = IdButur['AstandVidbotaruppl']
         kjalarnes['name'] = IdButur['StuttNafnButs']
         kjalarnes['updated'] = IdButur['DagsKeyrtUt']
+        kjalarnes['snow_maintenance'] = IdButur['Snjomokstursregla']
+        kjalarnes['name_full'] = IdButur['FulltNafnButs'] 
         if IdButur['AstandYfirbord'] in ['LOKAD','OFAERT_ANNAD','OFAERT_VEDUR']:
             kjalarnes['passable'] = "false"
         else:
@@ -43,6 +45,8 @@ for IdButur in response:
         hellisheidi['condition_detail'] = IdButur['AstandVidbotaruppl']
         hellisheidi['name'] = IdButur['StuttNafnButs']
         hellisheidi['updated'] = IdButur['DagsKeyrtUt']
+        hellisheidi['snow_maintenance'] = IdButur['Snjomokstursregla']
+        hellisheidi['name_full'] = IdButur['FulltNafnButs'] 
         if IdButur['AstandYfirbord'] in ['LOKAD','OFAERT_ANNAD','OFAERT_VEDUR']:
             hellisheidi['passable'] = "false"
         else:
