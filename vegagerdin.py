@@ -1,3 +1,9 @@
+# need to install
+# bs4
+# html5lib
+# lxml
+# paho-mqtt
+
 import json
 import requests
 import time
