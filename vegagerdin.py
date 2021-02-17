@@ -1,9 +1,6 @@
 # need to install
-# bs4
-# html5lib
-# lxml
-# paho-mqtt
-
+# pip install paho-mqtt requests lxml html5lib bs4
+import sys
 import json
 import requests
 import time
@@ -13,8 +10,13 @@ import paho.mqtt.client as paho
 # IP address or host name
 broker="yourMQTTbroker"
 # create client and connect to broker
-client= paho.Client("client-001")
-client.connect(broker)
+try:
+    client= paho.Client("client-001")
+    client.connect(broker)
+except:
+    print("An unexpected error occured")
+    #print("Unexpected error:", sys.exc_info()[0])
+    #raise
 
 urlfile = "http://gagnaveita.vegagerdin.is/api/faerd2017_1"
 
@@ -23,12 +25,17 @@ kjalarnes = {}
 hellisheidi = {}
 response = requests.get(urlfile).json()
 for IdButur in response:
-    #<IdButur>904210018</IdButur> -> Hvalfjarðarvegur. Botnsá - Hringvegur
-    #<IdButur>904000018</IdButur>
+    # Deprecated: <IdButur>904210018</IdButur> -> Hvalfjarðarvegur. Botnsá - Hringvegur
+    #<IdButur>904210019</IdButur> -> Hvalfjarðarvegur. Botnsá - Hringvegur
+    #<IdButur>904210019</IdButur> -> Hvalfjarðargöng
+    #<IdButur>903030019</IdButur>  -> Þingv.v-Hvalfjg.
     #<IdButur>904690018</IdButur> -> Hvalfjarðagöng
-    #<IdButur>902020018</IdButur> -> Hellisheiði
+    # Deprecated: <IdButur>902020018</IdButur> -> Hellisheiði
+    # <IdButur>902020019</IdButur> -> Hellisheiði
     # Kjalarnes
-    if IdButur['IdButur'] == 904210018:
+    #print(int(IdButur['IdButur']))
+    if int(IdButur['IdButur']) == 904210019:
+        print(IdButur['FulltNafnButs'])
         kjalarnes['condition'] = IdButur['AstandYfirbord']
         kjalarnes['condition_description'] = IdButur['AstandLysing']
         kjalarnes['condition_detail'] = IdButur['AstandVidbotaruppl']
@@ -45,7 +52,7 @@ for IdButur in response:
         client.publish("homeassistant/vegagerdin/kjalarnes",compact_obj)
     #
     # Hellisheiði
-    if IdButur['IdButur'] == 902020018:
+    if int(IdButur['IdButur']) == 902020019:
         hellisheidi['condition'] = IdButur['AstandYfirbord']
         hellisheidi['condition_description'] = IdButur['AstandLysing']
         hellisheidi['condition_detail'] = IdButur['AstandVidbotaruppl']
@@ -60,5 +67,7 @@ for IdButur in response:
             
         #publish to MQTT
         compact_obj = json.dumps(hellisheidi, separators=(',', ':'))
-        client.publish("homeassistant/vegagerdin/hellisheidi",compact_obj)
-
+        try:
+            client.publish("homeassistant/vegagerdin/hellisheidi",compact_obj)
+        except:
+            print("An unexpected error occured")
