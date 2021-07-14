@@ -33,7 +33,8 @@ for IdButur in response:
     #<IdButur>904690018</IdButur> -> Hvalfjarðagöng
     #<IdButur>904060022</IdButur> -> Holtavörðuheiði
     # Deprecated: <IdButur>902020018</IdButur> -> Hellisheiði
-    # <IdButur>902020019</IdButur> -> Hellisheiði
+    # Deprecated: <IdButur>902020019</IdButur> -> Hellisheiði
+    #<IdButur>902020022</IdButur> -> Hellisheiði
     # Kjalarnes
     #print(int(IdButur['IdButur']))
     if int(IdButur['IdButur']) == 904210019:
