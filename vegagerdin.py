@@ -23,6 +23,7 @@ urlfile = "http://gagnaveita.vegagerdin.is/api/faerd2017_1"
 #print(requests.get(urlfile).json())
 kjalarnes = {}
 hellisheidi = {}
+holtavorduheidi = {}
 response = requests.get(urlfile).json()
 for IdButur in response:
     # Deprecated: <IdButur>904210018</IdButur> -> Hvalfjarðarvegur. Botnsá - Hringvegur
