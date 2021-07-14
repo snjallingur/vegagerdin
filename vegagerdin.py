@@ -30,6 +30,7 @@ for IdButur in response:
     #<IdButur>904210019</IdButur> -> Hvalfjarðargöng
     #<IdButur>903030019</IdButur>  -> Þingv.v-Hvalfjg.
     #<IdButur>904690018</IdButur> -> Hvalfjarðagöng
+    #<IdButur>904060022</IdButur> -> Holtavörðuheiði
     # Deprecated: <IdButur>902020018</IdButur> -> Hellisheiði
     # <IdButur>902020019</IdButur> -> Hellisheiði
     # Kjalarnes
@@ -50,6 +51,27 @@ for IdButur in response:
         #publish to MQTT
         compact_obj = json.dumps(kjalarnes, separators=(',', ':'))
         client.publish("homeassistant/vegagerdin/kjalarnes",compact_obj)
+    #
+    #Holtavörðuheiði
+    #904060022
+    if int(IdButur['IdButur']) == 904060022:
+        holtavorduheidi['condition'] = IdButur['AstandYfirbord']
+        holtavorduheidi['condition_description'] = IdButur['AstandLysing']
+        holtavorduheidi['condition_detail'] = IdButur['AstandVidbotaruppl']
+        holtavorduheidi['name'] = IdButur['StuttNafnButs']
+        holtavorduheidi['updated'] = IdButur['DagsKeyrtUt']
+        holtavorduheidi['snow_maintenance'] = IdButur['Snjomokstursregla']
+        holtavorduheidi['name_full'] = IdButur['FulltNafnButs'] 
+        if IdButur['AstandYfirbord'] in ['LOKAD','OFAERT_ANNAD','OFAERT_VEDUR']:
+            holtavorduheidi['passable'] = "false"
+        else:
+            holtavorduheidi['passable'] = "true"           
+        #publish to MQTT
+        compact_obj = json.dumps(holtavorduheidi, separators=(',', ':'))
+        try:
+            client.publish("homeassistant/vegagerdin/holtavorduheidi",compact_obj)
+        except:
+            print("An unexpected error occured")  
     #
     # Hellisheiði
     if int(IdButur['IdButur']) == 902020019:
