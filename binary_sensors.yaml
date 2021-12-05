@@ -1,12 +1,40 @@
-# Binary sensors road conditions
+#Binary sensor for vegagerdin
+#Hellisheidi
 - platform: template
   sensors:
     road_hellisheidi:
       device_class: opening
       value_template: >-
-        {{ states.sensor.road_condition_hellisheidi.state == "true" }}
+        {{ is_state_attr('sensor.road_condition_hellisheidi', 'passable', 'true') }}
+        #{{ state_attr('sensor.road_condition_hellisheidi', 'passable') }}
       icon_template: >-
-        {% if states.sensor.road_condition_hellisheidi.state == "true" %}
+        {% if state_attr('sensor.road_condition_hellisheidi', 'passable') == "true" %}
+          mdi:car
+        {% else %}
+          mdi:car-off
+        {% endif %}
+#Kjalarnes
+- platform: template
+  sensors:
+    road_kjalarnes:
+      device_class: opening
+      value_template: >-
+        {{ is_state_attr('sensor.road_condition_kjalarnes', 'passable', 'true') }}
+      icon_template: >-
+        {% if state_attr('sensor.road_condition_kjalarnes', 'passable') == "true" %}
+          mdi:car
+        {% else %}
+          mdi:car-off
+        {% endif %}
+#Kjalarnes
+- platform: template
+  sensors:
+    road_holtavorduheidi:
+      device_class: opening
+      value_template: >-
+        {{ is_state_attr('sensor.road_condition_holtavorduheidi', 'passable', 'true') }}
+      icon_template: >-
+        {% if state_attr('sensor.road_condition_holtavorduheidi', 'passable') == "true" %}
           mdi:car
         {% else %}
           mdi:car-off
