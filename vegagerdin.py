@@ -16,7 +16,7 @@ broker="localhost"
 # create client and connect to broker
 try:
     client= paho.Client("client-vegagerdin")
-    client.username_pw_set(username="homeassistant",password="La0voozeihohfae8Soh0Thizeeyah8ahg5bias5kahqu3uyoo0Fie9shee9rie6i")
+    client.username_pw_set(username="homeassistant",password="kjbdksjbfska")
     client.connect(broker)
     client.loop_start()  #Start loop 
     time.sleep(4) # Wait for connection setup to complete
