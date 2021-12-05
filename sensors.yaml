@@ -1,8 +1,25 @@
+# ferð á vegum MQTT sensor
+# Kjalarnes
+- platform: mqtt
+  name: "road_condition_kjalarnes"
+  state_topic: "homeassistant/vegagerdin/kjalarnes"
+  icon: mdi:highway
+  value_template: "{{ value_json['condition_description'] }}"
+  json_attributes_topic: "homeassistant/vegagerdin/kjalarnes"
+  json_attributes_template: "{{ value_json | tojson }}"
 # Hellisheiði
 - platform: mqtt
   name: "road_condition_hellisheidi"
   state_topic: "homeassistant/vegagerdin/hellisheidi"
   icon: mdi:highway
-  value_template: "{{ value_json['passable'] }}"
+  value_template: "{{ value_json['condition_description'] }}"
   json_attributes_topic: "homeassistant/vegagerdin/hellisheidi"
+  json_attributes_template: "{{ value_json | tojson }}"
+# Holtavörðuheiði
+- platform: mqtt
+  name: "road_condition_holtavorduheidi"
+  state_topic: "homeassistant/vegagerdin/holtavorduheidi"
+  icon: mdi:highway
+  value_template: "{{ value_json['condition_description'] }}"
+  json_attributes_topic: "homeassistant/vegagerdin/holtavorduheidi"
   json_attributes_template: "{{ value_json | tojson }}"
