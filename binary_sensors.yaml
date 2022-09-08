@@ -1,3 +1,10 @@
+#####
+This method is deprecated! 
+Use mqtt.yaml instead
+#####
+
+
+
 #Binary sensor for vegagerdin
 #Hellisheidi
 - platform: template
