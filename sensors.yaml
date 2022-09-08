@@ -1,3 +1,9 @@
+#####
+This method is deprecated! 
+Use mqtt.yaml instead!
+#####
+
+
 # ferð á vegum MQTT sensor
 # Kjalarnes
 - platform: mqtt
