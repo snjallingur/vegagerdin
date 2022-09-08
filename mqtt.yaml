@@ -1,4 +1,6 @@
-sensors:
+#MQTT sensor
+#Documentation -> https://www.home-assistant.io/integrations/sensor.mqtt/
+sensor:
 # ferð á vegum MQTT sensor
   # Kjalarnes
   - name: "road_condition_kjalarnes"
